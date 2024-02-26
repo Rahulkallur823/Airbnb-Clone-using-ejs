@@ -1,0 +1,86 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row">
+    <div class="col-8 offset-2">
+        <h3>Create new Listing</h3>
+        <form action="/listings" method="POST"  class="needs-validation" novalidate enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title: </label><br />
+
+                <input type="text" name="listing[title]" placeholder="enter your title" class="form-control" required>
+                <div class="valid-feedback">
+                     Looks good!
+                </div>
+            </div>
+
+            <div>
+                <label for="description" class="form-label">description</label>
+
+                <textarea name="listing[description]" placeholder="write your description" class="form-control" required></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <br>
+
+
+                <div>
+                    <label for="image" class="form-label">image link</label>
+                    <input type="file" name="listing[image]"     class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                   
+            </div>
+            <div class="row">
+                <div class="mb-3 col-md-4">
+                    <label for="price" class="form-label">price</label>
+
+                    <input type="text" name="listing[price]" placeholder="100" class="form-control" required>
+                    <div class="invalid-feedback">
+                        please enter a valid price
+                    </div>
+                </div>
+
+                <div  class="mb-3 col-md-8">
+                    <label for="country" class="form-label">country</label>
+                    <input type="text" name="listing[country]" placeholder="country" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <label for="city" class="form-label">City: &nbsp;</label>
+                <input type="text" name="listing[location]" placeholder="enter your location" class="form-control" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <br>
+            <button class="btn btn-dark add-btn" type="submit">Add</button>
+
+        </form>
+    </div>
+</div>
+<script>
+    (() => {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>
