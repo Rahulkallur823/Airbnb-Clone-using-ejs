@@ -1,4 +1,4 @@
-git clone https://github.com/Rahulkallur823/project2.git
+git clone https://delta-project-edyb.onrender.com/listings
 cd project2
 npm install
 node app.js
